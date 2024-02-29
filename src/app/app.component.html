@@ -1,4 +1,22 @@
-<!--<app-primer-dia [ejemplo]="dinamico" [usuario]="dinamico2"></app-primer-dia>-->
-<app-segundo-dia></app-segundo-dia>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Bootcamp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/primer-dia">1er Dia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/segundo-dia">2do dia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tercer-dia">3er dia</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 <router-outlet/>
-
