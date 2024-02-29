@@ -1,0 +1,84 @@
+<p>segundo-dia works!</p>
+
+<button class="btn btn-primary" (click)="ckickButton('success')">cambios</button>
+
+<div>
+    <h3>Botones usando ngif</h3>
+    <div *ngIf="variable === 'success'">
+        <button class="btn btn-success">success</button>
+    </div>
+    <div *ngIf="variable === 'danger'">
+        <button class="btn btn-danger">danger</button>
+    </div> 
+</div>
+<hr>
+
+<div>
+    <h3>Boton Utilizando con una clase con una variable</h3>
+    <button [class]="btn_class">success</button>
+</div>
+
+<hr>
+
+<div>
+    <h3>Boton Utilizado con ngClass</h3>
+    <button class="btn" [ngClass]="{'btn-dark': variable === 'success'}">dark</button>
+</div>
+
+<hr>
+
+<div>
+    <h3>Boton Utilizando operador ternario</h3>
+    <button [class]="variable === 'success' ? 'btn btn-success' : 'btn btn-danger'">
+        {{variable}}
+    </button>
+</div>
+
+<hr>
+
+<div *ngFor="let itemuser of user">
+    <div>{{itemuser.name}}</div>
+    <div>{{itemuser.descricion}}</div>
+</div>
+
+<table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Descripcion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let itemuser of user">
+        <td>{{itemuser.name}}</td>
+        <td>{{itemuser.descricion}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+<h1>INPUTS No Reactivos</h1>
+<span>Nombre</span>
+<input type="text" class="form-control" [(ngModel)]="name">
+<span>Descripcion</span>
+<input type="text" class="form-control" [(ngModel)]="descripcion">
+<button class="btn btn-success" (click)="submitForm()">Submit</button>
+<h3>{{name}}</h3>
+<small>{{descripcion}}</small>
+
+
+
+
+<hr>
+
+<h1>INPUTS Reactivos</h1>
+<form [formGroup]="formulariouser">
+    <span>Nombre</span>
+    <input type="text" formControlName="name">
+
+    <span>Descripcion</span>
+    <input type="text" formControlName="description">
+
+    <button class="btn btn-success" (click)="submitForm()">Submitform</button>
+</form>

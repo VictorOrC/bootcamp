@@ -1,0 +1,45 @@
+<h1>Primer Dia</h1>
+<hr>
+
+<div class="card">
+    <div class="card-body">
+    
+      <h3 class="card-title">{{card.title}}</h3>
+      <img src="https://45.media.tumblr.com/tumblr_llxengvPbB1qdmxsio1_500.gif" class="card-img-top" alt="">
+      <hr>
+      <h5 class="card-text">Descripción</h5>
+      <p class="card-text">{{card.descripcion}}</p>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Guardar Datos
+      </button>
+    </div>
+  </div>
+    
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Titulo</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita consequuntur alias aspernatur debitis obcaecati aliquid at velit fugiat quas dolore quos pariatur reiciendis tenetur, enim provident? At omnis quibusdam iste.
+        </div>
+        <div class="alert alert-primary" role="alert">
+          A simple primary alert—check it out!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <p class="card-text">{{card.descripcion}}</p>
+
+  <p>La variable del padre es:</p>
+  <h3>{{ejemplo}}</h3>
+  <p>La id del usuario es:</p>
+  <h3>{{usuario}}</h3>
