@@ -1,0 +1,97 @@
+
+<div class="contenido">
+    <header>
+        <h1 class="m-4 pt-4">Proyecto final</h1>
+        <button  type="button" class="btn border-dark border-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Crear un nuevo usuario
+        </button>
+
+    </header>   <!-- Cerramos header -->
+
+    <hr class="border border-black border-2 opacity-100">
+
+    <div class="row">
+        <div class="col-6">  
+            <div class="card mb-4 border-black" style="width: 700px;"*ngFor="let itemuser of users;let i = index;">
+                <div class="card-body">
+                    
+                    <div class="row">
+                        <div class="col-9">
+                            <p>Nombre: {{itemuser.nombre}}</p>
+                            <p>Descripcion: {{itemuser.descripcion}}</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aliquam veniam incidunt eligendi in quibusdam molestias cumque necessitatibus. Reprehenderit natus, deserunt debitis officia voluptates explicabo tempora exercitationem error facilis provident?</p>
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-danger" (click)="getId(i)">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                            <button class="btn btn-primary" (click)="enviarDatos(itemuser, i)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+
+                                <button (click)="doxear(itemuser)" [ngClass]="{'btn btn-success': userEdit.index === userEdit.index}">
+                                <i class="bi bi-eye"></i>
+                                    
+                                </button>
+                        </div>
+                    </div>
+                
+                
+                </div>
+            </div> <!-- termina la carta -->
+        </div>
+
+        <div class="col-6"> 
+            <div class="my-google-map">
+                <google-map width="700px" height="700px" [options]="mapOptions">
+                    <map-marker *ngFor="let marker of users" [position]="marker.position"></map-marker>
+                </google-map>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" >
+          <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                {{userEdit.index >= 0 ? 'Editar' : 'Agregar nuevo' }} Usuario
+                  </h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="row">
+                <div class="col-6">
+                    <div class="modal-body">
+                        <form [formGroup]="formulariouser">
+                            <span>Nombre:</span><br>
+                            <input type="text" formControlName="nombre" class="mb-4" style="width: 100%;"><br>
+                            <span>Descripcion:</span><br>
+                            <textarea type="text" formControlName="descripcion" class="mb-4" style="width: 100%; height: 125px;"></textarea><br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam nihil, nulla dolorem sint, soluta commodi odio repellat ratione esse architecto magnam, voluptatum nisi nam? Explicabo, mollitia. Expedita sed incidunt tenetur?
+                        </form>
+                    </div> <!-- Cerramos el cuerpo del modal -->
+                </div>
+    
+                <div class="col-6">
+                    <div class="my-google-map">
+                        <google-map (mapClick)="obtainCoords($event)" width="100%" [options]="mapOptions">
+                            <map-marker [position]="position"></map-marker>
+                        </google-map>
+                    </div>
+                </div> <!-- Termina el mapa del modal -->
+           </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" (click)="submitForm()" data-bs-dismiss="modal">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div> <!-- Termina el model -->
+
+    
