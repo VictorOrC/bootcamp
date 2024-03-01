@@ -11,7 +11,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 })
 export class SegundoDiaComponent {
   variable = ''
-  btn_class="btn btn-success"
+  btn_class="btn btn-danger"
   name = ''
   descripcion = ''
 
